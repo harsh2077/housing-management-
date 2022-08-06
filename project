@@ -1,0 +1,868 @@
+#include<iostream.h>
+#include<stdio.h>
+#include<conio.h>
+#include<fstream.h>
+#include<string.h>
+#include<iomanip.h>
+#include<process.h>
+// demo { 
+class location() 
+ { 
+public :
+char name[20] ;
+void take () ; 
+void diplay () ; 
+} 
+//
+
+class apartments
+{
+		private :
+
+			//DATA MEMBERS
+
+			int Houseno_ ;
+			int no_of_male_members ;
+			int no_of_female_members ;
+			int no_of_adults ;
+			int no_of_child ;
+			int no_of_senior_citizen ;
+
+			// bed room, hall, kitchen
+
+int bhk ;
+int price ;
+
+			char occupation[30] ;
+			char first_name[30] ;
+			char last_name[30] ; 
+			char apartment_name[30] ;
+			char floor[20] ;
+			
+			location l ;
+			long pincode ;
+			long phone_no ;
+
+		public :
+			//MEMBER FUNCTIONS
+			apartments() ;
+			  void get_data() ;
+			  void put_data() ;
+			
+
+			  int get_houseno()
+			    {
+				return (Houseno_) ;
+			    }
+			  char*  get_owner()
+			    {
+			  	return (first_name) ;
+			    }
+			  char*  get_apartment_name()
+			    {
+				return (apartment_name) ;
+			    }
+			  int get_bhk()
+			    {
+			       	return (bhk) ; 
+			    }
+} ;
+
+//CONSTRUCTOR
+apartments :: apartments()
+{
+		Houseno_ = 311 ;
+		strcpy(floor,"GF") ;
+		no_of_male_members = 2 ;
+		no_of_female_members = 2 ;
+		no_of_adults = 2 ;
+		no_of_child = 2 ;
+		bhk = 4 ;
+		price = 500000 ;
+		no_of_senior_citizen =  1 ;
+		strcpy(occupation," Engineer ") ;
+		strcpy(first_name," HARSH") ;
+		strcpy(last_name," GUPTA ") ;
+		strcpy(apartment_name," Niwas ") ;
+		pincode = 110019 ;
+		phone_no = 9861999909 ; 
+}
+
+//MEMBER FUNCTION
+//1. TO COLLECT IONFORMATION
+
+void apartments::get_data()
+{
+	location l ;
+	clrscr() ;
+gotoxy(10,4) ;
+
+cout << "**************************************************** *****" ;
+
+gotoxy(10,5);
+	cout << " H O U S I N G  M A N A G E M E N T    S Y S T E M" ;
+
+gotoxy(10,6) ;
+
+cout << "************************************************** *******" ;
+	cout << endl ;
+
+cout << " House Number - " ;
+	cin >> Houseno_ ;
+	cout << endl ;
+
+	cout << "Which floor do you want?(GF/FF/SF) - " ;
+		cin >> floor ;
+		cout << endl ;
+
+		cout << " How many BHK - " ;
+		cin >> bhk ;
+		cout << endl ;
+		if ( bhk == 1 )
+			price = 5 ; 
+		else if ( bhk == 2 )
+			price = 10 ;
+		else if ( bhk == 3 )
+			price = 120 ;
+		else if ( bhk >  3 ) 
+			price = 50 ;
+
+     cout<< " First Name of the Owner - " ;
+		gets(first_name) ;
+		if( strlen(first_name) < 1 )
+		{
+		      cout << " Cannot be left Empty" ;
+		      cout << " \n First Name of the Owner - " ; 
+		      gets(first_name) ;
+		}
+		strupr(first_name) ;
+		cout << endl ;
+
+		cout << " Last Name of the Owner - " ;
+		gets( last_name );
+     if ( strlen(last_name) < 1 )
+		{
+		      cout << " Cannot be left Empty" ;
+		      cout << "\n Last Name of the Owner - " ;
+		      gets(last_name) ;
+		}
+		strupr(last_name) ;
+		cout << endl ;
+
+		cout << " Apartment Name - " ;
+		gets(apartment_name) ;
+		strupr(apartment_name) ;
+		cout << endl ; 
+
+		cout << " Pin Code - " ;
+		cin >> pincode ;
+		cout << endl ;
+
+		cout << " Phone Number - " ;
+		cin >> phone_no ;
+		cout << endl ;
+
+		cout << " Occupation - " ;
+		gets(occupation) ;
+		strupr(occupation) ;
+		cout << endl ; 
+
+		cout << " Number of Male Members - " ;
+		cin >> no_of_male_members ;
+		cout << endl;
+ 
+		cout << " Number of Female Members - " ;
+		cin >> no_of_female_members; cout<<endl ;
+
+		cout << " Number of Adults - " ;
+		cin >> no_of_adults;   cout<<endl ;
+
+		cout << " Number of Children - " ;
+		cin >> no_of_child;    cout<<endl ;
+
+		cout << " Number of Senior Citizens - " ;
+		cin >> no_of_senior_citizen ;
+		cout << endl ;
+}
+
+
+
+
+//2. TO DISPLAY INFORMATION
+
+void apartments :: put_data()
+{
+		clrscr() ;
+		gotoxy(10,2) ;
+cout << "************************************************ *********" ;
+
+		gotoxy(10,3) ;
+		cout << " H O U S I N G   M A N A G E M E N T    S Y S T E M" ;
+
+		gotoxy(10,4) ;
+cout << "************************************************ *********";
+
+		cout << "\t\t D E T A I L S   O F   T H E   A P A R T M E N T ";
+		cout << endl ;
+
+
+cout << "\t\tPrice of the apartment is - " << price << "00000" << endl ;
+		cout << endl ;
+
+
+
+		cout << "\tHouse Number - " << Houseno_ ;
+		cout << endl ;
+
+		cout << "\t Floor - "<<floor ;
+		cout << endl ;
+		if ( strcmp(floor,"GF") == 0 )
+		{
+
+			cout << "\t FACILITIES PROVIDED TO YOU ARE : " ;
+			cout << endl ;
+
+			cout << "\t\t 1) Gardern" ;
+			cout << endl ;
+
+			cout << "\t\t 2) Verandah" ;
+			cout<<endl;
+
+			cout << "\t\t 3) Parking Area" ;
+			cout << endl ;
+		}
+
+
+
+
+else if( strcmp(floor,"FF") )
+		{
+			cout << "\t FACILITIES PROVIDED TO YOU ARE : " ;
+			cout << endl ;
+
+			cout << "\t\t 1) Balcony" ;
+			cout << endl ;
+
+		 	cout << "\t\t 2) Garage" ;
+			cout << endl ;
+
+			cout << "\t\t 3) (1/4)th part of terrace" ;
+			cout << endl ;
+		}
+		else if( strcmp(floor,"SF") )
+		{
+			cout << "\t FACILITIES PROVIDED TO YOU ARE : " ;
+			cout << endl ;
+
+			cout << "\t\t 1) Balcony" ;
+			cout << endl ;
+ 
+			cout << "\t\t 2) Garage" ;
+			cout << endl ;
+
+			cout << "\t\t 3) (3/4)th part of terrace" ;
+			cout << endl;
+		}
+		cout << "\t BHK - "<<bhk ;
+		cout << endl ;
+
+		cout << "\t First Name of the Owner - " << first_name ;
+		cout << endl ;
+
+		cout << "\t Last Name of the Owner - " << last_name ;
+		cout << endl ;
+
+		cout << "\t\t\t Apartment Name - " << apartment_name ;
+		cout << endl ;
+
+		cout << "\t\t\t Pin Code - " << pincode ;
+		cout << endl ;
+
+		cout << "\t\t\t Phone Number - " << phone_no ;
+		cout << endl ;
+
+		cout << "\t\t\t Occupation - " << occupation ; 
+		cout << endl ;
+
+cout << "\t\t\t Number of Male Members -  " << no_of_male_members ;
+		cout << endl ;
+
+cout << "\t\t\t\t Number of Female Members - " << no_of_female_members;
+		cout << endl ;
+
+		cout << "\t\t\t\t Number of Adults - " << no_of_adults ;
+		cout << endl ;
+
+		cout << "\t\t\t\t Number of Children - " << no_of_child ;
+		cout << endl ;
+
+cout << "\t\t\t\t Number of Senior Citizens - "<<no_of_senior_citizen ;
+		cout << endl ;
+}
+
+
+
+
+
+// NEW APARTMENT
+
+void new_apartment()
+{
+		fstream f("apartment.dat",ios::binary|ios::out | ios::app) ;
+		apartments a ;
+		a.get_data() ;
+		f.write((char*)&a, sizeof(a)) ;
+		f.close() ;
+}
+
+
+
+
+//SEARCH FOR AN EXISTING APRTMENT
+
+void search_apartment_house()
+{		fstream f("apartment.dat",ios::binary|ios::in) ; 
+		apartments a ;
+		int no, found = 0 ; 
+		cout << " Enter the House Number - " ;
+		cin >> no ;
+		while(f.read((char*)&a,sizeof(a)))
+		{
+			if(no==a.get_houseno())
+			{
+				a.put_data() ;
+				found = 1 ;
+				break ;
+			}
+		}
+		if(found==0)
+			cout << " HOUSE IS NOT OCCUPIED TRY AGAIN............... " ;
+		f.close() ;
+}
+
+void search_through_bhk()
+{
+		fstream f("apartment.dat",ios::binary|ios::in) ;
+		apartments a ;
+		int no, found=0 ;
+		cout << " Enter the bhk - " ;
+		cin >> no ;
+		while(f.read((char*)&a,sizeof(a)))
+		{
+			if(no==a.get_bhk())
+			{
+				a.put_data() ;
+				found = 1 ;
+				break ;
+			}
+		}
+		if(found==0)
+			cout<<" HOUSE IS NOT OCCUPIED TRY AGAIN............... " ;
+		f.close() ;
+}
+void search_through_owner()
+{		fstream f("apartment.dat",ios::binary|ios::in) ;
+		apartments a ;
+		int found=0 ;
+		char ch[30] ;
+		cout << " Enter the House owner - " ;
+		cin >> ch ;
+		while(f.read((char*)&a,sizeof(a)))
+		{
+			if(strcmp(ch,a.get_owner())==0)
+			{
+				a.put_data() ;
+				found = 1 ;
+				break ;
+			}
+		}
+		if(found==0)
+			cout << " HOUSE IS NOT OCCUPIED TRY AGAIN............... " ; 
+		f.close() ;
+}
+void search_through_apartment_name()
+{
+		fstream f("apartment.dat",ios::binary|ios::in) ;
+		apartments a ; 
+		int  found=0 ;
+		char ch[30] ;
+		cout << " Enter the apartment name - " ;
+		cin >> ch ;
+		while(f.read((char*)&a,sizeof(a)))
+		{
+			if(strcmp(ch,a.get_apartment_name())==0)
+			{
+				a.put_data() ;
+				found = 1 ;
+				break ;
+			}
+		}
+		if(found==0)
+			cout << " HOUSE IS NOT OCCUPIED TRY AGAIN............... " ;
+		f.close() ;
+}
+
+void existing_apartment() ;
+
+void search_apartment()
+{
+	int choice=0 ;
+	while(choice!=6)
+	{
+		clrscr() ;
+
+		gotoxy(20,4) ;
+
+cout <<  "************************************************ *********" ;
+		gotoxy(20,5) ;
+		cout<<" H O U S I N G  M A N A G E M E N T    S Y S T E M " ;
+		gotoxy(20,6) ;
+cout << "***********************************************
+**********";
+
+
+		gotoxy(25,7);
+		cout << " SEARCHING APARTMENTS MENU \n " ;
+
+		gotoxy(30,9);
+		cout << " 1. HOUSE NUMBER  " << endl ;
+
+		gotoxy(30,11) ;
+		cout << " 2. OWNER NAME  " << endl ;
+
+		gotoxy(30,13) ;
+		cout << " 3. APARTMENT NAME " << endl ;
+
+		gotoxy(30,15) ;
+		cout << "4. BHK" << endl ;
+
+		gotoxy(30,17) ;
+		cout << " 5. BACK TO EXISTING APARTMENT MENU" << endl ;
+
+
+		gotoxy(30,19) ;
+		cout << " 6.EXIT" << endl ;
+
+		gotoxy(30,21) ;
+		cout << " SELECT YOUR CHOICE - " ;
+		cin >> choice;
+		switch(choice)
+		{
+			case 1 :
+				clrscr() ;
+				search_apartment_house() ;
+				getch() ;
+				break ;
+			case 2 :
+				clrscr() ;
+				search_through_owner() ;
+				getch() ;
+				break ;
+			case 3 :
+				clrscr() ;
+				search_through_apartment_name() ;
+				getch() ;
+				break ;
+			case 4 :
+				clrscr() ;
+				search_through_bhk() ;
+				getch() ;
+				break ;
+
+			case 5 :
+				clrscr() ;
+				existing_apartment() ;
+				getch() ;
+				break ;
+			case 6 :
+				clrscr() ;
+				cout << "EXITING........." ;
+				exit(0) ;
+				getch() ;
+				break ;
+		}
+	}
+}
+
+
+//DISPLAY APARTMENT
+
+
+void display_apartment()
+{
+		fstream f("apartment.dat",ios::binary|ios::in) ;
+		apartments a ;
+		f.seekg(0,ios::beg) ;
+		while(f.read((char*)&a, sizeof(a)))
+		{
+			a.put_data() ;
+			getch() ;
+		}
+		f.close();
+}
+
+
+
+
+//MODIFY APARTMENT
+
+void modify_apartment()
+{		fstream f("apartment.dat",ios::binary|ios::in|ios::out) ;
+		apartments a ;
+		f.seekg(0,ios::beg) ;
+		int  hno, found = 0 , pos = 0 ;
+		cout << " Enter the House Number - " ;
+		cin >> hno ;
+		while(f.read((char*)&a,sizeof(a)))
+		{       pos=f.tellg() ;
+			if( hno == a.get_houseno())
+			{
+				cout << " CURRENT DETAILS ARE : - \n \n " ;
+				a.put_data() ;
+				cout << " NEW DETAILS : - \n \n " ;
+				a.get_data() ;
+				found = 1 ;
+				f.seekp(pos-(sizeof(a)),ios::beg) ;
+				f.write((char*)&a , sizeof(a)) ;
+				cout << " RECORD MODIFIED . . . . . . " ;
+				break ;
+			}
+		}
+		f.close() ;
+		if(found==0)
+			cout << " INVALID HOUSE NO.!!!! SORRY. . . . TRY AGAIN " ;      
+}
+
+
+
+
+// DELETE APARTMENT
+
+void delete_apartment()
+{
+
+		fstream f("apartment.dat",ios::binary|ios::in) ;
+		fstream f1("temp.dat",ios::binary|ios::out) ;
+		apartments a ;
+		f.seekg(0,ios::beg) ;
+		int hno1, found = 0 ;
+		char confirm = 'y' ;
+		cout << " Enter the House Number - " ;
+		cin >> hno1;
+		while(f.read((char*)&a,sizeof(a)))
+		{
+			if(hno1==a.get_houseno())
+			{
+				cout << " CURRENT DETAILS ARE : - \n \n " ;
+				a.put_data() ;
+				found =  1 ;
+				cout << " ARE YOU SURE TO DELETE (y/n) - " ;
+				cin >> confirm ;
+				if(confirm=='n')
+					f1.write((char*)&a, sizeof(a)) ;
+				else
+					cout << " APARTMENT VACCANNED . . . . . " ;
+			}
+			else
+				f1.write((char*)&a, sizeof(a)) ;
+		}
+		f.close() ;
+		f1.close() ;
+		remove("apartment.dat") ;
+		rename("temp.dat","apartment.dat") ;
+		if( found == 0 )
+			cout << " INVALID HOUSE NO.!!!! SORRY. . . . TRY AGAIN " ;
+}
+
+
+
+
+// TO INPUT PASSWORD FOR ACCESSING THE PROGRAM
+
+void password()
+{
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" ;
+
+	gotoxy(20,5) ;
+	cout<<" H O U S I N G  " ;
+
+	gotoxy(20,6) ;
+	cout<<"*****************" ;
+
+	gotoxy(35,8) ;
+	cout << "M A N A G E M E N T" ;
+
+	gotoxy(35,9) ;
+	cout << "*******************" ;
+
+	gotoxy(50,11) ;
+	cout << "S Y S T E M" ;
+
+	gotoxy(50,12);
+	cout << "************\n\n" ;
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@" ;
+
+	char str[20] ;
+	int k = 0;
+	gotoxy(20,17) ; 
+cout << " PASSWORD TO ACCESS THE SYSTEM - " ;
+
+	while(1)
+	{
+		char ch = getch() ;
+		if( ch == 14)
+		{
+			str[k++]='\0';
+			break ;
+		}
+		cout << "*" ;
+		str[k++] = ch ;
+	}
+	if( strcmp("harshgupta",str) == 0 )
+	{
+		clrscr() ;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@" ;
+
+		gotoxy(20,5) ;
+		cout << "W E L C O M E" ;
+
+		gotoxy(20,6) ;
+		cout << "*************" ;
+
+		gotoxy(35,8) ;
+		cout << "H A R S H " ;
+
+
+		gotoxy(35,9) ;
+		cout << "**************\n\n" ;
+
+		gotoxy(80,0) ;
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@";
+		getch() ;
+		clrscr() ;
+	}
+	else
+	{
+		cout << " \n CANNOT ACCESS ! ! ! ! !  " ;
+		getch() ;
+		cout << "\n BYE..........BYE.............." ;
+		getch() ;
+		exit(0) ;
+	}
+}
+
+
+void existing_apartment() ;
+
+//FIRST MENU TO BE DISPLAYED ON THE SCREEN
+void main_menu()
+{
+	int choice=0;
+	while( choice != 3 )
+	{
+		clrscr() ;
+
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@" ;
+
+		gotoxy(20,4) ;
+		cout << " H O U S I N G  M A N A G E M E N T    S Y S T E M" ;
+		cout << endl << endl ;
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@
+@@@@@@" ;
+
+		gotoxy(30,10) ;
+		cout << " 1.BUY APARTMENT" ;
+
+		gotoxy(30,12) ;
+		cout << " 2.INFORMATION OF AN EXISTING APARTMENT" << endl ;
+
+		gotoxy(30,14) ;
+		cout << " 3. EXIT"<<endl ;
+
+		gotoxy (30,16) ;
+		cout << " \n SELECT YOUR CHOICE - " ;
+		cin >> choice ;
+		switch(choice)
+		{
+			case 1 :
+				clrscr() ;
+				new_apartment() ;
+				getch() ;
+				break ;
+			case 2 :
+				clrscr() ;
+				existing_apartment() ;
+				getch() ;
+				break ;
+
+			case 3 :
+				clrscr() ;
+				cout << " \n \n \t \t  EXITTING . . . . . . " ;
+				cout<<endl;
+				cout << "\t \t \t THANK YOU FOR USING IT" ;
+				getch() ;
+				exit(0) ;
+				break ;
+			default :
+				clrscr() ;
+				cout << " \n \n \t \t INVALID CHOICE . . . . " ;
+				getch() ;
+				break ;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+// SUB MENU TO BE DISPLAYED UNDER EXISTING APARTMENTS OPTION
+void existing_apartment()
+{
+	int choice = 0 ;
+	while( choice != 6 )
+	{
+		clrscr() ;
+		gotoxy(20,4) ;
+		cout << " ************************************************
+*********" ;
+		gotoxy(20,5) ;
+		cout << " H O U S I N G  M A N A G E M E N T    S Y S T E M" ;
+		gotoxy(20,6) ;
+cout << "***********************************************
+**********" ;
+
+		gotoxy(25,7) ;
+		cout << " EXISTING APARTMENTS MENU \n " ;
+
+		gotoxy(30,9) ;
+		cout << " 1. MODIFY DETAILS " << endl ;
+
+		gotoxy(30,11) ;
+		cout << " 2. INFORMATION " << endl ;
+
+		gotoxy(30,13) ;
+		cout << " 3. SELL " << endl ;
+
+		gotoxy(30,15) ;
+		cout << " 4. SEARCH" << endl ;
+
+		gotoxy(30,17) ;
+		cout << " 5. BACK TO MAIN MENU" << endl ;
+
+		gotoxy(30,19) ;
+		cout << " 6. EXIT" << endl ;
+
+		gotoxy(30,21) ;
+		cout << " SELECT YOUR CHOICE - " ;
+		cin >> choice ; 
+		switch(choice)
+		{
+			case 1 :
+				clrscr() ;
+				modify_apartment() ;
+				getch() ;
+				break ;
+
+			case 2 :
+				clrscr() ;
+				display_apartment() ;
+				getch() ;
+				break ;
+
+			case 3 :
+				clrscr() ;
+				delete_apartment() ;
+				getch() ;
+				break ;
+			case 4 :
+				clrscr() ;
+				search_apartment() ;
+				getch() ;
+				break ; 
+			case 5 :
+				clrscr() ;
+				cout << " RETURN TO MAIN MENU " ;
+				cout << endl ;
+				main_menu() ;
+				getch() ;
+				break ;
+
+case 6 :
+				clrscr() ;
+				cout << "\t\t\tEXITING.............." ;
+				cout << endl ;
+				cout << "THANK YOU FOR USING IT" ;
+				getch() ;
+				exit(0) ;
+				break ;
+		}
+	}
+}
+
+
+
+
+
+// MAIN FUNCTION
+void main()
+{
+		clrscr() ; 
+		cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@
+@@@@@@@@@" ;
+
+		gotoxy(20,5) ;
+		cout << " H O U S I N G  " ;
+
+gotoxy(20,6) ;
+		cout << "*****************" ;
+
+gotoxy(35,8) ;
+		cout << "M A N A G E M E N T" ;
+
+gotoxy(35,9) ;
+		cout << "*******************" ;
+
+gotoxy(50,11) ;
+		cout << "S Y S T E M" ;
+
+		gotoxy(50,12) ;
+		cout << "************\n\n" ;
+cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@" ;
+		gotoxy(20,20) ;
+		cout << "\tFROM :- HARSH GUPTA " ;
+		getch() ;
+
+		clrscr() ;
+		password() ;
+
+		clrscr() ;
+		main_menu() ;
+		getch() ;
+}
+
+ 
